@@ -19,6 +19,6 @@ async def ping(ctx):
     
 @bot.command()
 async def 進捗状況確認(ctx):
-    await ctx.send('pong')
+    await ctx.send('はぁ')
 
 bot.run(token)
