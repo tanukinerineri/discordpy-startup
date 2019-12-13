@@ -19,6 +19,6 @@ async def ping(ctx):
     
 @bot.command()
 async def 進捗状況確認(ctx):
-    await ctx.send('はぁ')
+    await ctx.send('654935120641261590')
 
 bot.run(token)
