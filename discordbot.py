@@ -14,7 +14,7 @@ async def on_command_error(ctx, error):
 
 
 @bot.command()
-async def 進捗はどうですか、アスフィ。(ctx):
+async def ping(ctx):
     await ctx.send('pong')
 
 
