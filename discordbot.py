@@ -19,6 +19,7 @@ async def ping(ctx):
     
 @bot.command()
 async def 進捗状況確認(ctx):
-    await ctx.send('654935120641261590')
+    CHANNEL_ID=654935120641261590
+    await ctx.send('CHANNEL_ID')
 
 bot.run(token)
