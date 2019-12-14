@@ -1,27 +1,34 @@
-# インストールした discord.py を読み込む
-import discord
+from discord.ext import commands
+import os
+import traceback
 
-# 自分のBotのアクセストークンに置き換えてください
-TOKEN = 'NjUyMDU5NjQ2Nzg1MjI0NzA0.Xei9Zg.KKDrOu8dJpEUxJ8l8ncCaxAklSE'
+bot = commands.Bot(command_prefix='/')
+token = os.environ['DISCORD_BOT_TOKEN']
 
-# 接続に必要なオブジェクトを生成
-client = discord.Client()
 
-# 起動時に動作する処理
-@client.event
-async def on_ready():
-    # 起動したらターミナルにログイン通知が表示される
-    print('ログインしました')
+@bot.event
+async def on_command_error(ctx, error):
+    orig_error = getattr(error, "original", error)
+    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+    await ctx.send(error_msg)
 
-# メッセージ受信時に動作する処理
-@client.event
+
+@bot.command()
+async def ping(ctx):
+    await ctx.send('pong')
+    
+@bot.command()
+async def 進捗状況確認(ctx):
+    CHANNEL_ID=654935120641261590
+    await ctx.send('はあ')
+    
+@bot.command()
 async def on_message(message):
-    # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return
-    # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == '/neko':
-        await message.channel.send('にゃーん')
+    # メンバーのリストを取得して表示
+    if message.content == '/members':
+        print(message.guild.members)
+    # 役職のリストを取得して表示
+    if message.content == '/roles':
+        print(message.guild.roles)    
 
-# Botの起動とDiscordサーバーへの接続
-client.run(TOKEN)
+bot.run(token)
