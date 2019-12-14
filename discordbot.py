@@ -20,7 +20,7 @@ async def ping(ctx):
 @bot.command()
 async def 進捗状況確認(ctx):
     CHANNEL_ID=654935120641261590
-    await ctx.send(print(message.guild.members))
+    await ctx.send('はあ')
     
 @bot.command()
 async def on_message(message):
