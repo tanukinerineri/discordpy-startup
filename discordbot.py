@@ -24,7 +24,7 @@ async def 進捗状況確認(ctx):
     
 async def on_message(message):
     # メンバーのリストを取得して表示
-    if message.content == '/members':
+    if message.content == 'aiueo':
         print(message.guild.members)
     # 役職のリストを取得して表示
     if message.content == '/roles':
