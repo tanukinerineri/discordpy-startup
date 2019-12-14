@@ -22,6 +22,7 @@ async def 進捗状況確認(ctx):
     CHANNEL_ID=654935120641261590
     await ctx.send('CHANNEL_ID')
     
+@bot.command()   
 async def on_message(message):
     # メンバーのリストを取得して表示
     if message.content == 'aiueo':
