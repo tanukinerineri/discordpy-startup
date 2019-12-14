@@ -23,9 +23,9 @@ async def 進捗状況確認(ctx):
     await ctx.send('はあ')
     
 @bot.command()
-async def on_message(ctx):
+async def on_message(message):
     # メンバーのリストを取得して表示
-    if ctx.content == '/members':
+    if message.content == '/members':
         print(message.guild.members)
     # 役職のリストを取得して表示
     if message.content == '/roles':
