@@ -21,5 +21,13 @@ async def ping(ctx):
 async def 進捗状況確認(ctx):
     CHANNEL_ID=654935120641261590
     await ctx.send('CHANNEL_ID')
+    
+async def on_message(message):
+    # メンバーのリストを取得して表示
+    if message.content == '/members':
+        print(message.guild.members)
+    # 役職のリストを取得して表示
+    if message.content == '/roles':
+        print(message.guild.roles)    
 
 bot.run(token)
