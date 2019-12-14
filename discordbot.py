@@ -3,7 +3,6 @@ import os
 import traceback
 
 bot = commands.Bot(command_prefix='/')
-client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 
 
@@ -23,7 +22,7 @@ async def 進捗状況確認(ctx):
     CHANNEL_ID=654935120641261590
     await ctx.send('CHANNEL_ID')
     
-@client.event  
+@bot.command()
 async def on_message(message):
     # メンバーのリストを取得して表示
     if message.content == '/members':
